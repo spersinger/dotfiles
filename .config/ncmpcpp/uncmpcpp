@@ -1,0 +1,23 @@
+#!/bin/bash
+FIFO="/tmp/ncmpcpp-ueberzug-fifo"
+
+cleanup() {
+    rm "$FIFO" 2>/dev/null
+    rm /tmp/mpd_cover.jpg 2>/dev/null
+    pkill -P $$ 2>/dev/null
+    pkill ncmpcpp_cover_art.sh
+}
+
+start_ueberzug() {
+    if [[ ! -e $FIFO ]]; then
+        mkfifo "$FIFO" || exit 1
+    fi
+    ueberzug layer --parser simple --silent < "$FIFO" &
+    # https://github.com/seebye/ueberzug/issues/54#issuecomment-502869935
+
+    exec 3>"$FIFO"
+}
+
+start_ueberzug
+ncmpcpp
+cleanup

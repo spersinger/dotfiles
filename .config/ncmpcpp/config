@@ -1,0 +1,38 @@
+#
+# NCMPCPP CONFIG
+#
+
+# [header]
+header_visibility = "no"
+state_line_color = "black"
+
+# [playlist]
+user_interface = alternative
+playlist_display_mode = "classic"
+song_list_format = "                      {$6%n$9 %a / %b - %t}$R{$7%l$9}"
+now_playing_prefix = "$b$5"
+now_playing_suffix = "$/b$9"
+
+# [visualizer]
+visualizer_type = "spectrum"
+visualizer_sync_interval = "30"
+visualizer_in_stereo = "yes"
+visualizer_look = "██"
+visualizer_color = "cyan, blue, red"
+
+# [global]
+progressbar_look = ─
+main_window_color = green
+execute_on_song_change = "$HOME/.ncmpcpp/./onsongchange.sh"
+playlist_disable_highlight_delay = 1
+follow_now_playing_lyrics = "yes"
+display_bitrate = "yes"
+
+# [mpd]
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mpd_music_dir = "~/Music"
+
+# [slave]
+#startup_slave_screen = visualizer
+#startup_slave_screen_focus = "no"
