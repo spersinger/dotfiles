@@ -1,0 +1,132 @@
+<eww>
+		<includes>
+			<file path="./notifications.xml"/>
+		</includes>
+    <definitions>
+        <def name="bar">
+					<box orientation="h" hexpand="true" space-evenly="true"> 
+						<music-bar/>
+						<workspaces-bar/>
+						<box orientation="h" halign="end" class="bar-title" space-evenly="false">{{time}}</box>
+          </box>
+        </def>
+        <def name="sidebar">
+            <box orientation="v" space-evenly="false" class="sidebar">
+							<divider/>
+							<box orientation="h" halign="center" space-evenly="false" style="font-size: 35px; font-family: Victor Mono; font-style: italic;">Welcome!</box>
+							<divider/>
+							<box orientation="h" halign="center" space-evenly="false" class="time">{{time}}</box>
+							<calendar orientation="h" halign="center" class="calendar" day="{{day}}">
+
+							</calendar>
+							<divider/>
+							<music-side/>
+							<divider/>
+							<workspaces-side/>
+							<divider/>
+            </box>
+        </def>
+
+
+				<!-- Sidebar related -->
+				<def name="workspaces-side">
+					<box orientation="v" class="workspace" space-evenly="true" valign="center">
+						<box orientation="h" class="workspace" space-evenly="true" halign="center">
+							<button onclick="wmctrl -s 0">{{work0}}</button>
+							<button onclick="wmctrl -s 1">{{work1}}</button>
+						</box>
+						<box orientation="h" class="workspace" space-evenly="true" halign="center">
+							<button onclick="wmctrl -s 2">{{work2}}</button>
+							<button onclick="wmctrl -s 3">{{work3}}</button>
+						</box>
+					</box>
+				</def>
+				<def name="music-side">
+					<box orientation="h" halign="center" space-evenly="false">
+						<box orientation="h" halign="center" style="background-image: url('{{cover}}')" class="music-art"/>
+							<box orientation="v" valign="center" space-evenly="false" class="center-right">
+								<label orientation="h" halign="center" space-evenly="false" class="sidebar-t" text="{{music-title}}" limit-width="30"></label>
+								<label orientation="h" halign="center" space-evenly="false" class="sidebar-p" text="{{music-artist}}" limit-width="30"></label>
+								<box orientation="h" halign="center" space-evenly="false">
+									<button onclick="mpc cdprev" class="icon">玲</button>
+									<button onclick="mpc toggle" class="icon">{{ppicon}}</button>
+									<button onclick="mpc next" class="icon">怜</button>
+								</box>
+								<box orientation="h" class="song-duration" space-evenly="false" halign="center">
+									<scale min="0" max="101" value="{{getpercentage}}" class="volume"></scale>
+								</box>
+							</box>
+						</box>
+				</def>
+				<def name="divider">
+					<box orientation="h" halign="center" space-evenly="false" class="divider">
+						<scale min="0" max="100" value="101" class="divider"></scale>
+					</box>
+				</def>
+
+				<!-- Bar related -->
+				<def name="workspaces-bar">
+					<box orientation="h" class="workspaces" space-evenly="true" halign="center">
+						<button onclick="wmctrl -s 0">1</button>
+						<button onclick="wmctrl -s 1">2</button>
+						<button onclick="wmctrl -s 2">3</button>
+						<button onclick="wmctrl -s 3">4</button>
+						<!--
+						<button onclick="wmctrl -s 4">5</button>
+						<button onclick="wmctrl -s 5">6</button>
+						<button onclick="wmctrl -s 6">7</button>
+						<button onclick="wmctrl -s 7">8</button>
+						<button onclick="wmctrl -s 8">9</button>
+						<button onclick="wmctrl -s 9">10</button>-->
+					</box>
+				</def>
+				<def name="music-bar">
+					<box orientation="h" halign="start" space-evenly="false">
+						<box orientation="h" halign="end" space-evenly="false">
+							<button onclick="mpc toggle">{{ppicon}}</button>
+						</box>
+						<box orientation="h" halign="center" space-evenly="false">{{music-bar}}</box>
+					</box>
+				</def>
+     </definitions>
+
+    <variables>
+				<!-- Workspace related -->
+				<script-var name="work0" interval="2s">~/.config/eww/scripts/getnamesonworkspace 0</script-var>
+        <script-var name="work1" interval="2s">~/.config/eww/scripts/getnamesonworkspace 1</script-var>
+        <script-var name="work2" interval="2s">~/.config/eww/scripts/getnamesonworkspace 2</script-var>
+        <script-var name="work3" interval="2s">~/.config/eww/scripts/getnamesonworkspace 3</script-var>
+
+				<!-- Music related -->
+				<script-var name="ppicon" interval="1ms">~/.config/eww/scripts/ppicon.sh</script-var>
+				<script-var name="cover" interval="1s">~/.config/eww/scripts/art.sh</script-var>
+				<script-var name="getpercentage" interval="10ms">~/.config/eww/scripts/getsongpercentage.sh</script-var>
+        <script-var name="music-bar" interval="1s">mpc status -f "%title% - %artist%" | sed 1q</script-var>
+        <script-var name="music-title" interval="1s">mpc status -f "%title%" | sed 1q</script-var>
+        <script-var name="music-artist" interval="1s">mpc status -f "%artist%" | sed 1q</script-var>
+
+				<!-- Time related -->
+        <script-var name="time" interval="10s">date "+%H:%M"</script-var>
+        <script-var name="date" interval="60m">date "+%a, %b %d"</script-var>
+        <script-var name="day" interval="60m">date "+%d"</script-var>
+
+    </variables>
+
+    <windows>
+        <window name="bar" stacking="bg">
+            <geometry x="0px" y="1052px" width="1920px" height="28px"/>
+						<reserve side="bottom" distance="28px"/>
+            <widget>
+                <bar/>
+            </widget>
+					</window>
+
+					<window name="sidebar" stacking="bg">
+            <geometry x="1620px" y="0px" width="300px" height="1054px"/>
+						<reserve side="left" distance="300px"/>
+            <widget>
+                <sidebar/>
+            </widget>
+        </window>
+    </windows>
+</eww>

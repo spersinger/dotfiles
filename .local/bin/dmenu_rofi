@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rofi -show run -modi run -location 7 -width 30 \
+		 -lines 12 -line-margin 0 -line-padding 1 \
+		 -separator-style none -font "mono 12" -columns 1 -bw 0 \
+		 -disable-history \
+		 -hide-scrollbar \
+		 -color-window "#282828, #282828, #b1b4b3" \
+		 -color-normal "#282828, #b1b4b3, #282828, #A1B56C, #383838" \
+		 -kb-row-select "Tab" -kb-row-tab ""

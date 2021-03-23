@@ -1,0 +1,16 @@
+#!/bin/bash
+workspace=$1
+#:12
+wmctrl -l | while read line 
+do
+	line="${line:12}"
+	line=$(echo $line | sed "s/ $(hostname)//")
+	if [ $(echo $line | cut -c1 | grep $workspace) ];then
+		line="${line:1:15}"
+		if [ ${#line} -gt 14 ]; then
+			echo $line"..."
+		else
+			echo $line
+		fi
+	fi
+done

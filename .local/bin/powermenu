@@ -1,0 +1,9 @@
+#!/bin/bash
+action=$(echo "shutdown
+lock" | dmenu)
+
+if [[ $action == "lock" ]]; then
+		betterlockscreen -l 
+else
+		sudo shutdown -h now
+fi

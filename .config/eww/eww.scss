@@ -1,0 +1,148 @@
+*{
+  all: unset;
+}
+window {
+  background-color: #282828;
+/*  background-color: #000000; */
+	color: #D8D8D8;
+	font-family: helvetica;
+}
+
+calendar {
+	padding: 2px 1px 0px 4px;
+	font-size: 14px;
+	font-family: serif;
+	font-style: normal;
+}
+calendar:selected {
+	border-radius: 3px;
+	background-color: #282828;
+}
+.calendar {
+
+}
+.sidebar {
+  background-color: #181818;
+	border: 2px solid #282828;
+}
+.sidebar-p {
+	font-size: 10px;
+}
+
+.music-art {
+	background-size: 100px;
+  min-height: 100px;
+  min-width: 100px;
+	margin-right: 5px;
+	margin-left: 10px;
+  border-radius: 10px;
+}
+.bar-icon {
+    font-size: 20px;
+    padding-bottom: 3px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.bar-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.bar-subtitle {
+    font-size: 15px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.title {
+    font-size: 13px;
+    min-width: 200px;
+    font-weight: bold;
+    background-color: #383838;
+}
+
+.clock {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.icon {
+    font-size: 20px;
+    min-height: 5px;
+		margin-bottom: 10px;
+}
+
+.song-duration scale trough {
+    all: unset;
+    background-color: #4e4e4e;
+    min-height: 5px;
+    min-width: 120px;
+		border-radius: 50px;
+		margin: 10px;
+		margin-top: 5px;
+}
+.song-duration trough highlight {
+	all: unset;
+	background-image: linear-gradient(to right, #544551, #BA8BAF);
+	border-radius: 50px;
+  color: #000000;
+}
+.song-duration slider {
+    all: unset;
+}
+
+.divider scale trough {
+    all: unset;
+    background-color: #4e4e4e;
+    min-height: 2px;
+    min-width: 260px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+		border-radius: 50px;
+}
+.divider trough highlight {
+	all: unset;
+	background-image: linear-gradient(to right, #282828, #4e4e4e, #282828);
+	border-radius: 50px;
+  color: #000000;
+}
+.divider slider {
+    all: unset;
+}
+
+.time {
+	font-size: 60px;
+	padding-top: 10px;
+	font-family: Serif;
+}
+.date {
+	font-size: 20px;
+	padding: 10px;
+}
+.subtitle {
+	font-family: Monospace;
+	padding-top: 10px;
+}
+
+.workspace button {
+	min-width: 112px;
+	min-height: 112px;
+	margin: 2px;
+	background-color: #282828;
+	border-radius: 3px;
+}
+.workspace button:hover {
+	background-color: #1B1B1B;
+}
+
+button {
+	all: unset;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+.workspaces button:hover {
+	color: #D35D6E;
+}

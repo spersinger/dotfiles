@@ -1,0 +1,7 @@
+#!/bin/bash
+
+file=$(date)
+file="${file// /_}"
+
+scrot -f -s --line style=solid,width=3 $HOME/Pictures/$file.png
+xclip -selection clipboard -target image/png -i $HOME/Pictures/$file.png

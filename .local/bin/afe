@@ -1,0 +1,41 @@
+#!/bin/bash
+
+f=3 b=4
+for j in f b; do
+  for i in {0..7}; do
+    printf -v $j$i %b "\e[${!j}${i}m"
+  done
+done
+
+t=$'\e[0m'
+
+h=
+wmname=$(echo $DESKTOP_SESSION)
+
+k=
+kernel="$(uname -r | cut -d '-' -f1)"
+
+o==
+os="void"
+
+sh=
+shell=$(basename $SHELL)
+
+p=
+packages=$(xbps-query -l | wc -l)
+clear
+#echo "
+#$f3    _,--,$t            $f1$h  $t$wmname
+#$f3 .-'---./_    __$t     $f3$k  $t$kernel
+#$f3/. \\      \"-.' /$t     $f2$o  $t$os
+#$f3\  //    _.-'._\\$t     $f5$p  $t$packages
+#$f3 \`\"\)--\"\`$t            $f2$sh  $t$shell
+#"
+echo "
+$f3 (\.   $f5\      $f3,/)$t     $f1$h  $t$wmname
+$f3  \(   $f5|\     $f3)/$t      $f3$k  $t$kernel
+$f5  //\  $f5| \   $f5/\\$t       $f2$o  $t$os
+$f5 (/ /\_#$f6..$f5#_/\ \)$t     $f5$p  $t$packages
+$f5  \/\  ####  /\/$t      $f2$sh  $t$shell
+$f5       \`##'$t
+"
