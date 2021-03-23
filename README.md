@@ -8,4 +8,4 @@
 
 <p/>
 
-![img]()
+![img](https://raw.githubusercontent.com/spersinger/dotfiles/main/images/rice.png)
