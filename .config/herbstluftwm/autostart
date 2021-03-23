@@ -24,8 +24,6 @@ hc keybind $Mod-d spawn "dmenu_rofi" # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-Shift-d spawn "manga"
 
 hc keybind $Mod-Shift-s spawn "screenshot" 
-hc keybind $Mod-Control-c spawn "camtoggle"
-hc keybind $Mod-x spawn "powermenu"
 
 # custom layouts
 hc keybind $Mod-Shift-i spawn "layout1-hc.sh" # Layout1
