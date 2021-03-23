@@ -33,10 +33,6 @@ exec eww daemon &
 # audio bc its kinda janky sometimes
 exec pulseaudio --start &
 
-# keyboard bindings
-# disable for some wms
-#exec sxhkd &
-
 # mpd music stuff
 exec mpd --stdout --no-daemon &
 exec mpdscribble &
@@ -57,35 +53,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# swaps caps and escapes. this breaks csgo and i have a keeb that i flashed to swap the keys so i 
+# dont need it anymore
 #setxkbmap -option caps:swapescape
 
-#export DESKTOP_SESSION=openbox
-#exec openbox-session
-
-#export DESKTOP_SESSION=fvwm3
-#exec fvwm3
-
-#export DESKTOP_SESSION=plasma
-#exec startplasma-x11
-
-#export DESKTOP_SESSION=xfwm4
-#exec xfwm4 --compositor=on
-
-#exec startxfce4
 
 export DESKTOP_SESSION=herbstluftwm
 exec herbstluftwm
-
-#export DESKTOP_SESSION=openbox
-#exec openbox
-
-#exec /home/sp/Documents/Dev/wm/wm
-
-#export DESKTOP_SESSION=monsterwm
-#exec monsterwm
-
-#export DESKTOP_SESSION=sowm
-#exec sowm
-
-#export DESKTOP_SESSION=cinnamon
-#exec cinnamon-session
